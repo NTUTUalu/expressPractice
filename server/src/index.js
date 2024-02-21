@@ -1,4 +1,6 @@
 const express = require("express");
+
+const cookieParser = require('cookie-parser')
 // import express from "express";
 const groceriesRoute = require("./routes/groceries");
 const marketsRoute = require('./routes/markets');
@@ -13,6 +15,7 @@ app.use(express.json());
 
 app.use('/api', groceriesRoute);
 app.use('/api', marketsRoute);
+app.use(cookieParser());
 
 app.listen(PORT, () => console.log(`running express server at port: ${PORT}`));
 // app.listen(PORT, () => {
